@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-blog-root',
   templateUrl: './blog-root.component.html',
-  styleUrls: ['./blog-root.component.css']
+  styleUrls: ['./blog-root.component.scss']
 })
 export class BlogRootComponent implements OnInit {
   constructor(private scully: ScullyRoutesService) {}

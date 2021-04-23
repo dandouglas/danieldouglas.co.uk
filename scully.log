@@ -186,3 +186,5 @@ No configuration for route "/blog/:slug" found. Skipping
 No routes defined in ""The option outDir isn't configured, using default folder "./dist/static/".
 
 
+Received Kill commandClosed servers
+

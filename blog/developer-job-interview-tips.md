@@ -1,10 +1,10 @@
 ---
 title: "Developer Job Interview Tips"
 description: "Some useful tips from my personal experience for landing that dream job."
-publish: true
 authors:
   - Daniel Douglas
 date: todo
+publish: true
 ---
 
 # Developer Job Interview Tips
