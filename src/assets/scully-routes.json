@@ -1,1 +1,1 @@
-[{"route":"/"},{"route":"/blog/first-post","title":"First Post","description":"My first post... how exciting!","publish":true,"authors":["Me"],"sourceFile":"first-post.md"},{"route":"/blog"}]
+[{"route":"/"},{"route":"/blog/developer-job-interview-tips","title":"Developer Job Interview Tips","description":"","publish":true,"authors":["Daniel Douglas"],"date":"todo","sourceFile":"developer-job-interview-tips.md"},{"route":"/blog"}]
