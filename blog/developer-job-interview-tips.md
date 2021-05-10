@@ -3,6 +3,7 @@ title: "Developer Job Interview Tips"
 description: "Some useful tips from my personal experience for landing that dream job."
 authors:
   - Daniel Douglas
+topics: non-technical
 date: todo
 publish: true
 ---
