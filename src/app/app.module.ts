@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ScullyLibModule
+    ScullyLibModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
