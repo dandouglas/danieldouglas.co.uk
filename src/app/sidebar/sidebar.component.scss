@@ -6,6 +6,8 @@
 
   @media (min-width: $dd-stacking-width + 1) {
     min-height: calc(100vh - (var(--dd-footer-height) + var(--dd-header-height)));
+    min-width: 150px;
+    max-width: 300px;
   }
 }
 
@@ -28,6 +30,10 @@ li {
     width: 100%;
     max-width: 150px;
     height: auto;
+
+    @media (min-width: $dd-stacking-width + 1) {
+      margin-bottom: 3rem;
+    }
   }
 
 }

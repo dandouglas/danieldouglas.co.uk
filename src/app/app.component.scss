@@ -1,6 +1,8 @@
 @import "../styles/variables";
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -13,14 +15,20 @@ ul {
   padding-left: 1em;
 }
 
-h1, h2, p {
-  margin: 0 0 .8em 0;
+h1,
+h2,
+p {
+  margin: 0 0 0.8em 0;
 }
 
 .container {
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: minmax(150px, 300px) 4fr;
+
+  @media (max-width: $dd-stacking-width) {
+    grid-template-columns: none;
+  }
 }
 
 app-header {
@@ -28,8 +36,8 @@ app-header {
   grid-column-end: -1;
 }
 
-.container > * {
-  border: red 1px solid;
+main {
+  padding: $dd-content-padding;
 }
 
 app-footer {
@@ -38,8 +46,6 @@ app-footer {
   grid-column-end: -1;
 }
 
-@media (max-width: $dd-stacking-width) {
-  .container {
-    grid-template-columns: none;
-  }
+.container > * {
+  border: red 1px solid;
 }
