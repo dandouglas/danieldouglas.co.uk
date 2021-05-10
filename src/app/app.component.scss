@@ -19,7 +19,6 @@ h1, h2, p {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-gap: 7px;
 }
 
 app-header {
@@ -29,7 +28,6 @@ app-header {
 
 .container > * {
   border: red 1px solid;
-  color: white;
 }
 
 app-footer {

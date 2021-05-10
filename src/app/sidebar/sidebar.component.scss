@@ -1,6 +1,10 @@
 :host {
   background-color: var(--dd-dark);
   padding: 1rem;
+
+  @media (min-width: 801px) {
+    min-height: calc(100vh - (var(--dd-footer-height) + var(--dd-header-height)));
+  }
 }
 
 h3, fa-icon {
@@ -9,6 +13,7 @@ h3, fa-icon {
 
 p {
   line-height: 1.4;
+  color: #ccc;
 }
 
 li {
