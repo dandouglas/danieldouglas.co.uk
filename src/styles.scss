@@ -1,0 +1,15 @@
+@import "styles/reset.scss";
+
+:root {
+  // Colours
+  --dd-dark: #252525;
+  --dd-orange: #ff632b;
+}
+
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+h3, p {
+  margin-bottom: .5rem;
+}
