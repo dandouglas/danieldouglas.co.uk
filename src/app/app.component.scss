@@ -1,0 +1,45 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+  background-color: #fff;
+}
+
+ul {
+  padding-left: 1em;
+}
+
+h1, h2, p {
+  margin: 0 0 .8em 0;
+}
+
+.container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 7px;
+}
+
+app-header {
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+.container > * {
+  background-color: red;
+  color: white;
+}
+
+app-footer {
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+@media (max-width: 800px) {
+  .container {
+    grid-template-columns: none;
+  }
+}

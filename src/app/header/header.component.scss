@@ -1,18 +1,16 @@
 header {
-  align-items: baseline;
-  display: flex;
-  height: 50px;
-}
-
-nav {
-  width: 70%;
+  height: 56px;
 }
 
 ul {
   display: flex;
   justify-content: flex-end;
 }
+
 li {
   display: block;
   padding: 20px 15px;
+  a {
+    text-decoration: none;
+  }
 }
