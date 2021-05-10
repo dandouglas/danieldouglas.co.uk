@@ -1,3 +1,5 @@
+@import "../styles/variables";
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -36,7 +38,7 @@ app-footer {
   grid-column-end: -1;
 }
 
-@media (max-width: 800px) {
+@media (max-width: $dd-stacking-width) {
   .container {
     grid-template-columns: none;
   }

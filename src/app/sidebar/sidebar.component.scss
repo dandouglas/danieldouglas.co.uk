@@ -1,8 +1,10 @@
+@import "../../styles/variables";
+
 :host {
   background-color: var(--dd-dark);
   padding: 1rem;
 
-  @media (min-width: 801px) {
+  @media (min-width: $dd-stacking-width + 1) {
     min-height: calc(100vh - (var(--dd-footer-height) + var(--dd-header-height)));
   }
 }
