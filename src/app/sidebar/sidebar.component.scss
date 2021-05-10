@@ -1,0 +1,26 @@
+:host {
+  background-color: var(--dd-dark);
+  padding: 1rem;
+}
+
+h3, fa-icon {
+  color: var(--dd-orange);
+}
+
+p {
+  line-height: 1.4;
+}
+
+li {
+  list-style: none;
+}
+
+.profile-image {
+  text-align: center;
+  img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+  }
+
+}
