@@ -11,13 +11,14 @@
   }
 }
 
-h3, fa-icon {
+h3, fa-icon, a {
   color: var(--dd-orange);
 }
 
 p {
   line-height: 1.4;
   color: #ccc;
+  margin-bottom: .5rem;
 }
 
 li {
