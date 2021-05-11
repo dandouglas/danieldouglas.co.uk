@@ -45,8 +45,8 @@ li {
 
 a {
   --scaleX: 1;
-  position: relative;
   --rotate: -2deg;
+  position: relative;
   text-decoration: none;
   &::before {
     height: 5px;
