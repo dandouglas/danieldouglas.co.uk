@@ -37,10 +37,38 @@
 
 p {
   font-family: 'Operator Mono','Inconsolata', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  margin-bottom: 1rem;
+  line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.17rem;
+}
+
+h4 {
+  font-size: 1.00rem;
+}
+
+h5 {
+  font-size: 0.83rem;
+}
+
+h6 {
+  font-size: 0.67rem;
+}
 
