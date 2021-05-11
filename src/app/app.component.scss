@@ -8,7 +8,7 @@
 
 body {
   padding: 20px;
-  background-color: #fff;
+  background: var(--dd-dark);
 }
 
 ul {
@@ -32,20 +32,18 @@ p {
 }
 
 app-header {
-  grid-column-start: 1;
+  grid-column-start: 2;
   grid-column-end: -1;
 }
 
 main {
   padding: $dd-content-padding;
+  background-color: var(--dd-light);
+  min-height: calc(100vh - (var(--dd-footer-height) + var(--dd-header-height)));
 }
 
 app-footer {
   text-align: center;
-  grid-column-start: 1;
+  grid-column-start: 2;
   grid-column-end: -1;
-}
-
-.container > * {
-  border: red 1px solid;
 }
