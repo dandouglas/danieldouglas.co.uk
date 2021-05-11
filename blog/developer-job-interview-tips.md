@@ -16,7 +16,7 @@ Ok that last part was probably not accurate... I don't know for sure but I would
 
 So why did I get offered the job and not any of the other candidates?
 
-I don't know for definite but I hope this article will provide others with help and advice to land that dream job.  The biggest hurdle of all is securing that first role in tech.  Once you have that under your belt then it should get easier.  I'll be honest, I think I was lucky to get my first tech job.  I immediately formed a bond with the interviewer over our mutual appreciation of Pearl Jam within the fairly early stages.  This is something I talk about later but that question that some people dread... you know the one... "Tell me a bit about yourself" is your greatest ally.  After that the interview felt nothing more than a casual chat.
+I don't know for definite but I hope this article will provide others with help and advice to land that dream job.  The biggest hurdle of all is securing that first role in tech.  Once you have that under your belt then it should get easier.  I'll be honest, I think I was lucky to get my first tech job.  I immediately formed a bond with the interviewer over our mutual appreciation of Pearl Jam within the fairly early stages.  This is something I talk about later but that question that some people dread... you know the one... _"Tell me a bit about yourself"_ is your greatest ally.  After that the interview felt nothing more than a casual chat.
 
 I was certainly not technically ready for the position I was offered.  I had just finished my first two years at Uni and decided to leave with a Foundation Degree rather than incur the costs of the third year to gain a degree in Computer Science.  The role wasn't even for a junior.  I was expected to lead a large team of developers to build a bespoke management solution using technologies I had zero experience with.  
 
@@ -53,7 +53,7 @@ Get there 5 minutes early.. no later and no sooner.
 
 ## Practice your answers to common questions
 
-I won't spend too much time on this one as there are plenty of other resources out there on common interview questions and example answers but just make sure you are ready for them.  You know the questions I am talking about... "What are your main weaknesses?" and "What can you bring to this company" etc..  No more so than the one that I will guarantee 100% that you will be asked "Tell me about yourself".
+I won't spend too much time on this one as there are plenty of other resources out there on common interview questions and example answers but just make sure you are ready for them.  You know the questions I am talking about... _"What are your main weaknesses?"_ and _"What can you bring to this company"_ etc..  No more so than the one that I will guarantee 100% that you will be asked _"Tell me about yourself"_.
 
 Personally I would keep the answers relatively short and avoid waffling.  In the past I have asked someone to tell me about themselves and they gave me their entire life story from birth.  For that particular question in tech I would concentrate on a brief overview of the profession technical aspects of your life but finish with a very short sentence about any hobbies or interests you have in hope of striking a common bond with the interviewer.  As this question is always asked very early on in the interview it gives you that opportunity to find common ground with the person you are talking to.
 

@@ -38,13 +38,15 @@
 p {
   font-family: 'Operator Mono','Inconsolata', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   margin-bottom: 1rem;
-  line-height: 1.5;
+  line-height: 1.75;
+  color: var(--dd-text-body);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   margin-bottom: 2rem;
   margin-top: 2rem;
+  font-weight: bolder;
 }
 
 h1 {
@@ -72,3 +74,8 @@ h6 {
   font-size: 0.67rem;
 }
 
+em {
+  font-style: italic;
+  color: var(--dd-text-emphasis);
+  font-weight: bolder;
+}

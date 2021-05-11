@@ -6,10 +6,17 @@
   --dd-dark: #252525;
   --dd-light: #f7f7f7;
   --dd-orange: #ff632b;
+  --dd-text-body: #333;
+  --dd-text-header: #111;
+  --dd-text-emphasis: #222;
 
   // Layout
   --dd-header-height: 56px;
   --dd-footer-height: 56px;
+}
+
+html, body {
+  overscroll-behavior: none;
 }
 
 body {
