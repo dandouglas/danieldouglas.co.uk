@@ -1,0 +1,17 @@
+
+a {
+  --scaleX: 1;
+  --rotate: -2deg;
+  position: relative;
+  text-decoration: none;
+  &::before {
+    height: 5px;
+    position: absolute;
+    background: var(--dd-orange);
+    content: "";
+    width: 100%;
+    bottom: -5px;
+    transition: transform 0.1s ease 0s;
+    transform: skew(-20deg) rotate(var(--rotate)) scaleX(var(--scaleX));
+  }
+}
