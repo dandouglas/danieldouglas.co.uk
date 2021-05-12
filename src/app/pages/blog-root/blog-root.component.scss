@@ -1,0 +1,28 @@
+
+a {
+  text-decoration: none;
+  display: block;
+  position: relative;
+
+  &>div {
+    display: inline-block;
+  }
+
+  .blog-preview {
+    max-width: 600px;
+    margin-left: 1rem;
+    position: absolute;
+    top: 0;
+  }
+}
+
+h2 {
+  color: var(--dd-text-header);
+  margin: 0;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+}
+
+ul {
+  margin-top: 1rem;
+}
