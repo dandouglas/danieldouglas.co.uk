@@ -1,0 +1,13 @@
+<div class="card-grid-space" *ngFor="let post of posts">
+  <a class="card" href="https://codetheweb.blog/2017/10/06/html-syntax/"
+    style="--bg-img: url(https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&resize_w=1500&url=https://codetheweb.blog/assets/img/posts/html-syntax/cover.jpg)">
+    <div class="card-content">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.description }}</p>
+      <div class="date">6 Oct 2017</div>
+      <div class="tags">
+        <div class="tag">{{ post.topic }}</div>
+      </div>
+    </div>
+  </a>
+</div>
