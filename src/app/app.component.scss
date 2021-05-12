@@ -40,6 +40,11 @@ main {
   padding: $dd-content-padding;
   background-color: var(--dd-light);
   min-height: calc(100vh - (var(--dd-footer-height) + var(--dd-header-height)));
+
+  .main-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
 }
 
 app-footer {
