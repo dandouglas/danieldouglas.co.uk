@@ -4,6 +4,8 @@ a {
   --rotate: -2deg;
   position: relative;
   text-decoration: none;
+  color: var(--dd-text-emphasis);
+  font-weight: bolder;
   &::before {
     height: 5px;
     position: absolute;
