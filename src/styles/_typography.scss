@@ -1,48 +1,54 @@
 // Headings
 @font-face {
-  font-family: 'Montserrat';
-  src: url(assets/fonts/montserrat-v15-latin-regular.woff2) format('woff2');
+  font-family: "Montserrat";
+  src: url(assets/fonts/montserrat-v15-latin-regular.woff2) format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 // Paragraphs
 @font-face {
-  font-family: 'Fira Code';
-  src: url(assets/fonts/FiraCode-Light.woff2) format('woff2');
+  font-family: "Fira Code";
+  src: url(assets/fonts/FiraCode-Light.woff2) format("woff2");
   font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Fira Code';
-  src: url(assets/fonts/FiraCode-Regular.woff2) format('woff2');
+  font-family: "Fira Code";
+  src: url(assets/fonts/FiraCode-Regular.woff2) format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Fira Code';
-  src: url(assets/fonts/FiraCode-SemiBold.woff2) format('woff2');
+  font-family: "Fira Code";
+  src: url(assets/fonts/FiraCode-SemiBold.woff2) format("woff2");
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Fira Code';
-  src: url(assets/fonts/FiraCode-Bold.woff2) format('woff2');
+  font-family: "Fira Code";
+  src: url(assets/fonts/FiraCode-Bold.woff2) format("woff2");
   font-weight: 700;
   font-style: italic;
 }
 
 p {
-  font-family: 'Operator Mono','Inconsolata', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: "Operator Mono", "Inconsolata", Consolas, Monaco, "Andale Mono",
+    "Ubuntu Mono", monospace;
   margin-bottom: 1rem;
   line-height: 1.75;
   color: var(--dd-text-body);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   margin-bottom: 2rem;
   margin-top: 2rem;
@@ -63,7 +69,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1.00rem;
+  font-size: 1rem;
 }
 
 h5 {
@@ -78,4 +84,21 @@ em {
   font-style: italic;
   color: var(--dd-text-emphasis);
   font-weight: bolder;
+}
+
+a.fancy-link {
+  --scaleX: 1;
+  --rotate: -2deg;
+  position: relative;
+  text-decoration: none;
+  &::before {
+    height: 5px;
+    position: absolute;
+    background: var(--dd-orange);
+    content: "";
+    width: 100%;
+    bottom: -5px;
+    transition: transform 0.1s ease 0s;
+    transform: skew(-20deg) rotate(var(--rotate)) scaleX(var(--scaleX));
+  }
 }

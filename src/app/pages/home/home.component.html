@@ -1,10 +1,48 @@
-<p>Home Works</p>
-<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+<h1>Welcome</h1>
+<p>Hello all and welcome to my personal blog site and general dumping ground for my thoughts and ideas.
+  You'll hopefully find lots of useful information here on technical topics such as <a href="https://angular.io/" class="fancy-link" targe>Angular</a>, JavaScript, TypeScript, CI/CD and general development things.
+  I'll also talk about my past experience as life as a developer along with helps and tips to boost your careers.
+</p>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+  <h2>Latest Posts</h2>
+  <div class="card-grid-space" *ngFor="let post of posts$ | async">
+    <a class="card" href="https://codetheweb.blog/2017/10/06/html-syntax/"
+      style="--bg-img: url(https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&resize_w=1500&url=https://codetheweb.blog/assets/img/posts/html-syntax/cover.jpg)">
+      <div class="card-content">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.description }}</p>
+        <div class="date">6 Oct 2017</div>
+        <div class="tags">
+          <div class="tag">{{ post.topic }}</div>
+        </div>
+      </div>
+    </a>
+  </div>
 
-<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+  <div class="card-grid-space" *ngFor="let post of posts$ | async">
+    <a class="card" href="https://codetheweb.blog/2017/10/06/html-syntax/"
+      style="--bg-img: url(https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&resize_w=1500&url=https://codetheweb.blog/assets/img/posts/html-syntax/cover.jpg)">
+      <div class="card-content">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.description }}</p>
+        <div class="date">6 Oct 2017</div>
+        <div class="tags">
+          <div class="tag">{{ post.topic }}</div>
+        </div>
+      </div>
+    </a>
+  </div>
 
-<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+  <div class="card-grid-space" *ngFor="let post of posts$ | async">
+    <a class="card" href="https://codetheweb.blog/2017/10/06/html-syntax/"
+      style="--bg-img: url(https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&resize_w=1500&url=https://codetheweb.blog/assets/img/posts/html-syntax/cover.jpg)">
+      <div class="card-content">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.description }}</p>
+        <div class="date">6 Oct 2017</div>
+        <div class="tags">
+          <div class="tag">{{ post.topic }}</div>
+        </div>
+      </div>
+    </a>
+  </div>
