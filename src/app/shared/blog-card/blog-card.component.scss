@@ -20,7 +20,7 @@
   align-items: flex-end;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 0 5em -1em black;
+  box-shadow: var(--dd-shadow-one);
   transition: all, var(--transition-time);
   position: relative;
   overflow: hidden;
@@ -55,7 +55,7 @@
 
 .card:hover .tags .tag {
   background: var(--dd-dark);
-  color: white;
+  color: rgb(228, 228, 228);
 }
 
 .card .date {
