@@ -11,6 +11,7 @@ export class PolaroidComponent implements OnInit {
   @Input() caption: string;
   @Input() width: string;
   @Input() height: string;
+  @Input() rotate?: number = 0;
 
   constructor() { }
 
