@@ -1,5 +1,30 @@
 :host {
+  background: var(--dd-light);
+}
+
+div {
+  max-width: 800px;
+  margin: 0 auto;
   height: var(--dd-footer-height);
   background-color: var(--dd-light);
+  color: var(--dd-text-body);
   font-size: .8rem;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Fira Code";
+  line-height: 10;
+}
+
+.social {
+  a {
+    margin-left: 1rem;
+  }
+}
+
+a {
+  color: var(--dd-text-body);
+}
+
+.email-icon {
+  margin-right: .5rem;
 }
