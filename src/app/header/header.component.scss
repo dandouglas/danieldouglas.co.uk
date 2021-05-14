@@ -10,12 +10,6 @@ ul {
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
-
-  @media (min-width: $dd-stacking-width + 1) {
-    li:first-child {
-      padding-left: 0 !important;
-    }
-  }
 }
 
 li {
