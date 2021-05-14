@@ -48,7 +48,7 @@ jobs:
       - run:
           name: Deploy
           command: |
-            aws s3 sync ./dist s3://danieldoouglas.co.uk
+            aws s3 sync ./dist/static s3://danieldouglas.co.uk
 workflows:
   version: 2
   build_and_deploy:
