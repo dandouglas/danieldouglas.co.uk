@@ -12,7 +12,8 @@
     "scully": "scully",
     "scully:serve": "scully serve",
     "jam-dev": "npm run build && npm run scully -- --scanRoutes && npm run scully serve",
-    "jam-prod": "npm run build:prod && npm run scully -- --scanRoutes && npm run scully serve"
+    "jam-prod": "npm run build:prod && npm run scully -- --scanRoutes && npm run scully serve",
+    "jam-prod:build": "npm run build:prod && npm run scully -- --scanRoutes"
   },
   "private": true,
   "dependencies": {
