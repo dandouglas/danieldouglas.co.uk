@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-blog-card',
@@ -6,13 +6,8 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   styleUrls: ['./blog-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BlogCardComponent implements OnInit {
-
-  constructor() { }
+export class BlogCardComponent {
 
   @Input() posts: any; // TODO: Interface
-
-  ngOnInit(): void {
-  }
 
 }

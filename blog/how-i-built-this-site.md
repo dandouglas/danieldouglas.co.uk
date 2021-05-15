@@ -2,17 +2,26 @@
 title: 'How I built this site'
 description: 'A quick overview of the tech stack and tooling used to produce this site.'
 published: true
-slugs:
-    - ___UNPUBLISHED___koo57pj3_SzLFRtL8PjAfAUV6E7miH30ESUbFXbNl
+image: "/assets/images/blog/how-I-built-this-blog.jpeg"
+topic: 'tech'
+date: '14/05/2022'
 ---
 
 # How I built this site
+
+<small>14/05/2022</small>
+
+![A computer screen with random code](../../assets/images/blog/how-I-built-this-blog.jpeg)
 
 As this is my first post then I thought what better to write about than how I built the site and the tooling used.
 
 The site was created with [Angular](https://angular.io/).  You may be thinking "_that's like using a sledgehammer to crack a nut_" or "_a rocket launcher to kill a flea_" or any other idiom you prefer.  To some extent, I agree but I have my reasons for building the site with Angular.
 
-For one, I know Angular very well as I have been developing software with it since the dark days of AngularJs.  This meant I could get the site up and running in a short amount of time as my capacity for side projects is limited.  Before I move on to my second reason, have a click about and see if you spot anything "_unusual_". Did you spot it?  Ok, I'll tell you, the site is fast... blazingly fast for an Angular app.  That's not just down to its simplicity, lazy loading and using on push change detection, etc... it's because it's a JamStack app.  There weren't any options to build JamStack apps with Angular and then came [Scully](https://scully.io/) (named after a television character from a certain tv show).
+For one, I know Angular very well as I have been developing software with it since the dark days of AngularJs.  This meant I could get the site up and running in a short amount of time as my capacity for side projects is limited.  Before I move on to my second reason, have a click about and see if you spot anything "_unusual_".
+
+Did you spot it?  Ok, I'll tell you, the site is fast... blazingly fast for an Angular app.  That's not just down to its simplicity, lazy loading and using on push change detection, etc... it's because it's a JamStack app.
+
+There weren't any options to build JamStack apps with Angular and then came [Scully](https://scully.io/) (named after a television character from a certain tv show).
 
 Scully will turn your Angular app into highly optimized static pages.  It does this by examining the app source and creating an index file for each page whilst setting up a configuration file for all the routes.
 
@@ -30,6 +39,5 @@ To publish a post all I need to do is check the code into [GitHub](https://githu
 
 The only other major part of this setup I haven't spoken about is [Cloudflare](https://www.cloudflare.com/).  Cloudflare is an amazing tool.  It gives you HTTPS encryption for free and protects you from "_DDoS attacks, malicious bots, and other nefarious intrusions_".   It is also a CDN so will ensure the site is delivered as quickly as possible.
 
-That is it.  All code was written using my favorite text editor [Visual Studio Code](https://code.visualstudio.com/) on a [13" MacBook Air M1]()... which is perfect for sitting on your lap and writing blog posts on a Sunday afternoon with an ice code craft beer.  
-
+That is it.  All code was written using my favorite text editor [Visual Studio Code](https://code.visualstudio.com/) on a [13" MacBook Air M1]().
 

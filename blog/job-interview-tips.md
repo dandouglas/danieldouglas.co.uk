@@ -1,14 +1,12 @@
 ---
-title: "Developer Job Interview Tips"
-description: "Some useful tips from my personal experience for landing that dream job."
-authors:
-  - Daniel Douglas
-topic: life
-date: todo
-publish: true
+title: 'Job interview tips'
+description: 'blog description'
+published: false
+slugs:
+    - ___UNPUBLISHED___koogdshg_OJ212J0baDDOtA3o5jg6FFRfQQADvS4r
 ---
 
-# Developer Job Interview Tips
+# Job interview tips
 
 At the time of writing I have been working in the World of tech for about a decade.  In that time I have applied for 4 roles and have had a 100% success rate so far.  That's it, that's all I wanted to say.  I am amazing and I clearly was the best developer that had applied for those roles.
 
