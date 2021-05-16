@@ -20,10 +20,16 @@
     }
   }
 
+  h1 {
+    margin: 0;
+  }
+
   small {
     font-size: smaller;
-    position: absolute;
-    top: 6px;
-    right: 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
   }
 }
