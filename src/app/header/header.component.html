@@ -1,15 +1,19 @@
 <header>
   <nav class="main-menu">
-    <ul>
-      <li>
-        <a [routerLinkActive]="['active']" routerLink="/home">Home</a>
-      </li>
-      <li>
-        <a [routerLinkActive]="['active']" routerLink="/about">About</a>
-      </li>
-      <li>
-        <a [routerLinkActive]="['active']" routerLink="/blog">Blog</a>
-      </li>
-    </ul>
-  </nav>
+  <ul #nav class="nav">
+    <li class="navlink">
+      <a [routerLinkActive]="['active']" routerLink="/home">Home</a>
+    </li>
+    <li class="navlink">
+      <a [routerLinkActive]="['active']" routerLink="/about">About</a>
+    </li>
+    <li class="navlink">
+      <a [routerLinkActive]="['active']" routerLink="/blog">Blog</a>
+    </li>
+  </ul>
+</nav>
+  <div #menuIcon class="burger" (click)="toggleNav()">
+      <fa-icon *ngIf="!sideNavIsVisible" [icon]="faBars"></fa-icon>
+      <fa-icon *ngIf="sideNavIsVisible" [icon]="faTimes"></fa-icon>
+  </div>
 </header>
