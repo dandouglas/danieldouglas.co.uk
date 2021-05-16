@@ -74,7 +74,7 @@ a.active {
       padding: 0;
       transition: all 400ms;
       z-index: 99;
-
+      display: none;
       a {
         color: var(--dd-light);
       }
@@ -82,5 +82,6 @@ a.active {
 
   .nav-active {
       right: 0;
+      display: block;
   }
 }
