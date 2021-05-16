@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <nav class="main-menu">
     <ul>
       <li>
@@ -12,4 +12,23 @@
       </li>
     </ul>
   </nav>
+</header> -->
+
+<header>
+  <nav class="main-menu">
+  <ul class="nav">
+    <li class="navlink">
+      <a [routerLinkActive]="['active']" routerLink="/home">Home</a>
+    </li>
+    <li class="navlink">
+      <a [routerLinkActive]="['active']" routerLink="/about">About</a>
+    </li>
+    <li class="navlink">
+      <a [routerLinkActive]="['active']" routerLink="/blog">Blog</a>
+    </li>
+  </ul>
+</nav>
+  <div class="burger" (click)="toggleNav()">
+      <fa-icon [icon]="faBars"></fa-icon>
+  </div>
 </header>
