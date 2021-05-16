@@ -69,4 +69,5 @@ workflows:
       - build_deploy
         filters:
           branches:
-            only: main
+            only:
+              - main
