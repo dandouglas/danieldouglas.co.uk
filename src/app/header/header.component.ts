@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { AfterViewInit, Component } from '@angular/core';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,8 +8,11 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 export class HeaderComponent implements AfterViewInit {
 
   readonly faBars = faBars;
+  readonly faTimes = faTimes;
   nav: any;
   burger: any;
+  sideNavIsVisible = false;
+
 
   constructor() { }
 
@@ -26,6 +29,7 @@ toggleNav() {
     // this.burger.classList.toggle('fa-bars');
     // this.burger.classList.toggle('fa-times');
     this.nav.classList.toggle('nav-active');
+    this.sideNavIsVisible = !this.sideNavIsVisible;
 }
 
 }
