@@ -17,9 +17,7 @@ As this is my first post then I thought what better to write about than how I bu
 
 The site was created with [Angular](https://angular.io/).  You may be thinking "_that's like using a sledgehammer to crack a nut_" or "_a rocket launcher to kill a flea_" or any other idiom you prefer.  To some extent, I agree but I have my reasons for building the site with Angular.
 
-For one, I know Angular very well as I have been developing software with it since the dark days of AngularJs.  This meant I could get the site up and running in a short amount of time as my capacity for side projects is limited.  Before I move on to my second reason, have a click about and see if you spot anything "_unusual_".
-
-Did you spot it?  Ok, I'll tell you, the site is fast... blazingly fast for an Angular app.  That's not just down to its simplicity, lazy loading and using on push change detection, etc... it's because it's a JamStack app.
+For one, I know Angular very well as I have been developing software with it since the dark days of AngularJs.  This meant I could get the site up and running in a short amount of time as my capacity for side projects is limited.  Before I move on to my second reason, why don't you disable JavaScript in your browser?  As you can see the site still functions perfectly despite being an Angular app.  The reason for this is that it is a JamStack app.
 
 There weren't any options to build JamStack apps with Angular and then came [Scully](https://scully.io/) (named after a television character from a certain tv show).
 
