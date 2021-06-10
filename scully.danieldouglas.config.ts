@@ -4,7 +4,7 @@ import { GoogleAnalytics } from '@scullyio/scully-plugin-google-analytics';
 const defaultPostRenderers = [];
 
 if (prod) {
-  setPluginConfig(GoogleAnalytics, { globalSiteTag: 'G-K3PYY83029' });
+  setPluginConfig(GoogleAnalytics, { globalSiteTag: 'UA-199281301-1' });
   defaultPostRenderers.push(GoogleAnalytics);
 }
 
