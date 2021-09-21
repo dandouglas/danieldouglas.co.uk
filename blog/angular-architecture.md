@@ -1,7 +1,8 @@
 ---
 title: 'Angular Architecture'
 description: 'blog description'
-published: true
+image: "/assets/images/blog/how-I-built-this-blog.jpeg"
+published: false
 slugs:
     - ___UNPUBLISHED___knuhcsd5_aGDZlWfPUNR8nQzYZRGGVxypAnFixmW6
 ---

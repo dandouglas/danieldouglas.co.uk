@@ -1,9 +1,19 @@
+:host {
+  display: block;
+}
+
 :root {
   --transition-time: 0.5s;
 }
 
 .card-grid-space {
   display: inline-block;
+  margin-right: 1rem;
+
+  @media screen and (max-width: 828px) {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
 }
 
 .card {
@@ -26,6 +36,10 @@
   overflow: hidden;
   border: 10px solid #ccc;
   text-decoration: none;
+
+  // @media screen and (max-width: 860px) {
+  //   width: 100%;
+  // }
 }
 
 .card:hover {
