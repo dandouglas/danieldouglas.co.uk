@@ -9,83 +9,70 @@ slugs:
 
 # Angular Architecture
 
-## Introduction
+The application structure should be divided into modules required at startup (eager loaded) and modules only needed when the user navigates to that part of the application (lazy-loaded).
+The primary purpose of this architecture is to keep the main bundle size as small as possible for faster initial load times.
 
-There are many different ways to architect an Angular application.  This post details my approach which works well for large applications.
+## Eager Loaded
 
-## Top Level Folders
+These modules will be loaded when the application starts.
+Examples of modules required at startup are the navigation components, layout components, authentication, etc.
 
-![Top level folder structure](../../assets/images/blog/angular-architecture/top-level-folders.png)
+## Lazy Loaded
+These modules will only be loaded when the user navigates to the various parts of the application via Angular's lazy-loaded routing mechanism.
+When modules are lazy-loaded, they get their own separate bundle to the main bundle. Having an individual bundle for modules has many advantages, such as keeping the main bundle size small, resulting in faster initial loading times and a better developer experience. When working on lazy-loaded modules, that module bundle will be rebuilt and not the main bundle or any other lazy-loaded module bundles.
+Lazy loading modules also give you the advantage of runtime errors if you are using any components or services etc., from one feature module in another. This is advantageous as it's not good practice to do this as you would not expect to change something in "Feature A" that results in "Feature B" breaking.
+Services
+Regarding the above, we should only provide services at the root level required by the entire application.
+Services that are only required for one module should only be provided for that module by adding them to the module's providers array. The injectable decorator should be empty in these cases.
+If a service is required by a number of feature modules, then it should be added to a module in the shared folder and imported into the feature modules as required.
+Shared Folder
+It is an important distinction that the shared folder is a folder and not a module. The reason for this is that it will become substantial and will likely get imported into all the feature modules, and this will bloat the bundle size of those feature modules and result in a loss of all the benefits of lazy loading them.
+The shared folder should consist of several child modules that can be imported as needed. For example, it may contain a list module for all the list components or a table module for all the table components, etc.
 
-There's not much different here to what Angular gives you out the box.  The only addition is the "testing" folder.  This is where we can store any helper and utilities files for testing such as generating dummy data or mocking dependencies.
+## Features
 
-## The App Folder
+For a typical Angular application with NgRx, I would structure the feature modules file structure in the following way.
 
-![The app folder structure](../../assets/images/blog/angular-architecture/app-folder.png)
+\> Feature A
 
-This is where it gets a little bit more interesting.  This folder contains two sub-folders and the core module which is also a folder but it's important to mention that the other two are just folders and not modules.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> components (dumb components)
 
-1. Core Module
-2. Shared Folder
-3. Features Folder
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> constants
 
-Other than the three folders above which I will go into more detail about next, there are also the files associated with the app component.  The app component is the default entry component that Angular bootstraps when the application is launched.  When creating a new Angular application this is the initial component that is created.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> containers (smart components)
 
-### Core Module
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> enums
 
-![The core module](../../assets/images/blog/angular-architecture/core-module.png)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> graphql (queries and mutations)
 
-The core module is originally where the application services were located as most services are singletons and this module is only ever imported once into the App Module.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> pages (routable smart components)
 
-However since Angular 6.0 you can pass the `providedIn` property to the `@Injectable()` decorator to declare that a service should be provided in the root of the application making it a singleton.  This means that we no longer need to place all our services in the Core Module and it's actually better to declare services for specific features in their respective feature module.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> services
 
-I have come across some Angular applications in recent years where there is not a core module but I think this is a bad idea, especially for larger complex apps.  I want to know exactly what an application needs to run and without the core module it makes it very difficult.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> store (NgRx)
 
-The core module should contain all the components and services that the app needs to function apart from the App Component itself.  If you were to remove a component or service from the Core Module then you should expect the app to loose some essential core functionality.  This could be that it no longer reports analytics or you can no longer navigate about the app.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> actions
 
-Examples of other sub-modules you may expect to find here are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> effects
 
-1. Analytics Module
-2. Authentication Module
-3. Navigation Module
-4. Root Store Module (NgRx)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> models (interfaces)
 
-It is likely that every feature in the app will need to send analytics to some third party service.  If the app is secure then the authentication module will need to always be available.  Without the navigation module users will not be able to navigate about the app.  If the application uses NgRx for state management then removing the root store module will likely stop the app from functioning at all.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> reducers
 
-### Shared Folder
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> selectors
 
-The distinction between this being a folder rather than a module is important. I have worked with developers who feel a shared module is the devil... and I somewhat agree.
+### Dumb Components (UI components)
+These are simple UI components and should not contain any business logic.
+For performance, they should always use the OnPush change detection strategy.
+They should have zero external dependencies, ie the constructor should be empty.
+Data should be passed to them via the input decorator. Any functionality should be passed back up to the parent component.  The parent component should be either a Smart component or Page via the output decorator.
 
-The problem with shared modules is that they become a dumping ground for all the components, pipes, and directives that we share amongst the various feature modules.
+### Smart Components
+Smart components can contain the application's business logic, and the template will generally include one or more Dumb components.
+They can also have external dependencies. The dependencies may consist of services that can handle the business logic for the component if needed.
+It is recommended that the change detection strategy remains as the default setting as you may not guarantee that there are no side effects due to the business logic.
+They may also have inputs and possibly outputs, but this is less likely as the component usually handles any functionality.
+Smart components are usually used to avoid nesting dumb components. If you are nesting Dumb components, you may be in a position where you are passing data up multiple levels to be dealt with, which is not good practice. If you are doing this, it is best to use a Smart component so data only has to be passed up one level.
 
-Over time this "module" could become huge and it is likely imported into pretty much every feature module. This can result in bloated bundle sizes and a fairly chaotic-looking dependency graph.
-
-The solution is to lose the shared module and just keep the folder. You can then create multiple modules for the various shared components and directives etc.
-
-For example, you may have a data table that is required in multiple feature modules. Simply creating a module for the data table means you can just import that single component into those feature modules and not the entire shared module which could potentially be many MB's in size.
-
-How granular you go with the shared module is up to you and dependent upon the application you are building. You could create a module for every single pipe, directive, or component. You could group all the pipes, directives, and components logically into various modules. For example, you may have a module for all your pipes or create a table module for all shared table components and directives, etc.
-
-### Feature Folder
-
-![The feature folder](../../assets/images/blog/angular-architecture/feature-folder.png)
-
-The feature folder is once again just a folder.  When I first started building apps with Angular I used to create a feature module which contained all what I would refer to as domain level components.  This is fine for small and simple applications but for medium sized apps and above I would not recommend doing this.  
-
-If all your various feature modules are imported into one single feature module which in turn is imported into the app module then you will loose the ability to lazy load them.  This means that the initial startup time of your application could be very slow as it needs to load all the various modules regardless if the user ever visits that part of the application.
-
-Only importing your feature modules when a user navigates to that specific view will keep your startup times small.
-
-Organising the feature folder by their domain makes it easy for new developers to quickly navigate about the code base.  Even though this blog is relatively small I still chose to architect in this way.  
-
-Therefore my feature folder contains the following feature modules:
-
-1. About
-2. Blog
-3. Home
-
-These relate to the top level domains of the site.
-
-![The top level site domains](../../assets/images/blog/angular-architecture/site-domains.png)
-
-
+### Pages
+These are the same as Smart components, but the only difference is that these will be part of the application routing, and all navigation should be to a Page component.
