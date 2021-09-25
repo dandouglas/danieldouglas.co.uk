@@ -1,10 +1,10 @@
 ---
 title: 'Angular Architecture'
 description: 'Some simple steps to ensure your application is as lean as possible'
-image: "/assets/images/blog/how-I-built-this-blog.jpeg"
+image: "/assets/images/blog/angular-architecture/angular.jpeg"
 published: true
-slugs:
-    - ___UNPUBLISHED___knuhcsd5_aGDZlWfPUNR8nQzYZRGGVxypAnFixmW6
+topic: 'angular'
+date: '25/09/2021'
 ---
 
 # Angular Architecture
@@ -36,15 +36,14 @@ When adding a piece of code, you should ask the question, "Does this code need t
 These modules will only be loaded when the user navigates to the various parts of the application via Angular's lazy-loaded routing mechanism.
 
 You can lazy-load a route in the following way.
-
-```typescript
+<pre>
 const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
   }
 ];
-```
+</pre>
 
 When modules are lazy-loaded, they get their own separate bundle to the main bundle. Having an individual bundle for modules has many advantages, such as keeping the main bundle size small, resulting in faster initial loading times and a better developer experience.
 
@@ -58,15 +57,16 @@ We should only provide services at the root level if the entire application requ
 
 A service provided at the root level will have a decorator with the `providedIn` property set to `'root'`.
 
-```typescript
+<pre>
 @Injectable({ providedIn: 'root' })
 export class SomeService { }
-```
+</pre>
+
 Alternatively add them to the providers array in the Core or App module.
 
 Services required for one module should be provided by adding them to the module's providers array. The injectable decorator should be empty in these cases.
 
-```typescript
+<pre>
 @Injectable()
 export class SomeService { }
 ...
@@ -77,7 +77,7 @@ export class SomeService { }
     ],
 })
 export class SomeModule { }
-```
+</pre>
 
 If a service is required by several feature modules, then it should be added to a module in the shared folder and imported into the feature modules as needed.
 

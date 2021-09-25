@@ -4,7 +4,7 @@ description: 'A quick overview of the tech stack and tooling used to produce thi
 published: true
 image: "/assets/images/blog/how-I-built-this-blog.jpeg"
 topic: 'tech'
-date: '14/05/2022'
+date: '14/05/2021'
 ---
 
 # How I built this site
