@@ -36,9 +36,12 @@ li {
   padding: 1rem;
   border-radius: .5rem;
   box-shadow: var(--dd-shadow-one);
+  margin-bottom: 1rem;
 }
 
 .blog-image {
   width: 100%;
-  height: 200PX;
+  height: 200px;
+  background-position: center !important;
+  background-size: cover !important;
 }

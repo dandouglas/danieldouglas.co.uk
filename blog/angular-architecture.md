@@ -17,11 +17,14 @@ Therefore, we must understand how to architect our apps to optimise the initial 
 
 Luckily for us Angular developers, it's not too difficult to do, and it just takes a little bit of thought as to where we want to include the application modules.  This is down to Angular's code splitting API... sometimes referred to as "lazy-loading".
 
+Inspiration for this article came from a very insightful episode of [Angular Air](https://angularair.com/) featuring [Tomas Trajan](https://tomastrajan.com/home).  I have been building Angular applications for many years following this architecture, and Tomas's talk inspired me to write this article.
+
+## Application Structure
+
 The application structure should be divided into modules required at startup (eager loaded) and modules only needed when the user navigates to that part of the application (lazy-loaded).
 
 The primary purpose of this architecture is to keep the main bundle size as small as possible for faster initial load times.
 
-Inspiration for this article came from a very insightful episode of [Angular Air](https://angularair.com/) featuring [Tomas Trajan](https://tomastrajan.com/home).  I have been building Angular applications for many years following this architecture, and Tomas's talk inspired me to write this article.
 
 ![Application Architecture](../../assets/images/blog/angular-architecture/angular-architecture.png)
 
