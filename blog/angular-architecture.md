@@ -1,6 +1,6 @@
 ---
 title: 'Angular Architecture'
-description: 'Some simple steps to ensure your application is as lean as possible'
+description: 'Some simple steps to ensure your application is as lean as possible.'
 image: "/assets/images/blog/angular-architecture/angular.jpeg"
 published: true
 topic: 'angular'
