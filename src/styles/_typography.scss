@@ -55,8 +55,7 @@ h4,
 h5,
 h6 {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   font-weight: bolder;
   font-display: swap;
 }
@@ -64,6 +63,7 @@ h6 {
 h1 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
+  color: var(--dd-dark);
 }
 
 h2 {

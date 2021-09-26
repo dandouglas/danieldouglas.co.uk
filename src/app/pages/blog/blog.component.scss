@@ -33,10 +33,15 @@
     height: auto;
   }
 
-  code {
+  code, pre {
     font-family: "Fira Code";
     background-color: #eee;
     font-size: 0.9rem;
     padding: 0.2rem;
+  }
+
+  pre {
+    margin: 1rem 0;
+    padding: 1rem;
   }
 }

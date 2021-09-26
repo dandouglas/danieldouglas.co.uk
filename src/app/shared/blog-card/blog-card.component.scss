@@ -54,7 +54,9 @@
 }
 
 .card .tags {
-  display: flex;
+  position: absolute;
+  bottom: 1rem;
+
 }
 
 .card .tags .tag {

@@ -1,91 +1,171 @@
 ---
 title: 'Angular Architecture'
-description: 'blog description'
-image: "/assets/images/blog/how-I-built-this-blog.jpeg"
-published: false
-slugs:
-    - ___UNPUBLISHED___knuhcsd5_aGDZlWfPUNR8nQzYZRGGVxypAnFixmW6
+description: 'Some simple steps to ensure your application is as lean as possible'
+image: "/assets/images/blog/angular-architecture/angular.jpeg"
+published: true
+topic: 'angular'
+date: '25/09/2021'
 ---
 
 # Angular Architecture
 
 ## Introduction
 
-There are many different ways to architect an Angular application.  This post details my approach which works well for large applications.
+It is essential to structure your Angular application correctly to provide the best user experience.  As web technology has improved over the years with client-side routing and caching, users are unwilling to wait long for apps to start.
 
-## Top Level Folders
+Therefore, we must understand how to architect our apps to optimise the initial load time.  Nordstrom (a North American fashion retailer) reported that they suffered an 11% drop in sales when their website initial load time increased by just half a second.
 
-![Top level folder structure](../../assets/images/blog/angular-architecture/top-level-folders.png)
+Luckily for us Angular developers, it's not too difficult to do, and it just takes a little bit of thought as to where we want to include the application modules.  This is down to Angular's code splitting API... sometimes referred to as "lazy-loading".
 
-There's not much different here to what Angular gives you out the box.  The only addition is the "testing" folder.  This is where we can store any helper and utilities files for testing such as generating dummy data or mocking dependencies.
+Inspiration for this article came from a very insightful episode of [Angular Air](https://angularair.com/) featuring [Tomas Trajan](https://tomastrajan.com/home).  I have been building Angular applications for many years following this architecture, and Tomas's talk inspired me to write this article.
 
-## The App Folder
+## Application Structure
 
-![The app folder structure](../../assets/images/blog/angular-architecture/app-folder.png)
+The application structure should be divided into modules required at startup (eager loaded) and modules only needed when the user navigates to that part of the application (lazy-loaded).
 
-This is where it gets a little bit more interesting.  This folder contains two sub-folders and the core module which is also a folder but it's important to mention that the other two are just folders and not modules.
-
-1. Core Module
-2. Shared Folder
-3. Features Folder
-
-Other than the three folders above which I will go into more detail about next, there are also the files associated with the app component.  The app component is the default entry component that Angular bootstraps when the application is launched.  When creating a new Angular application this is the initial component that is created.
-
-### Core Module
-
-![The core module](../../assets/images/blog/angular-architecture/core-module.png)
-
-The core module is originally where the application services were located as most services are singletons and this module is only ever imported once into the App Module.
-
-However since Angular 6.0 you can pass the `providedIn` property to the `@Injectable()` decorator to declare that a service should be provided in the root of the application making it a singleton.  This means that we no longer need to place all our services in the Core Module and it's actually better to declare services for specific features in their respective feature module.
-
-I have come across some Angular applications in recent years where there is not a core module but I think this is a bad idea, especially for larger complex apps.  I want to know exactly what an application needs to run and without the core module it makes it very difficult.
-
-The core module should contain all the components and services that the app needs to function apart from the App Component itself.  If you were to remove a component or service from the Core Module then you should expect the app to loose some essential core functionality.  This could be that it no longer reports analytics or you can no longer navigate about the app.
-
-Examples of other sub-modules you may expect to find here are:
-
-1. Analytics Module
-2. Authentication Module
-3. Navigation Module
-4. Root Store Module (NgRx)
-
-It is likely that every feature in the app will need to send analytics to some third party service.  If the app is secure then the authentication module will need to always be available.  Without the navigation module users will not be able to navigate about the app.  If the application uses NgRx for state management then removing the root store module will likely stop the app from functioning at all.
-
-### Shared Folder
-
-The distinction between this being a folder rather than a module is important. I have worked with developers who feel a shared module is the devil... and I somewhat agree.
-
-The problem with shared modules is that they become a dumping ground for all the components, pipes, and directives that we share amongst the various feature modules.
-
-Over time this "module" could become huge and it is likely imported into pretty much every feature module. This can result in bloated bundle sizes and a fairly chaotic-looking dependency graph.
-
-The solution is to lose the shared module and just keep the folder. You can then create multiple modules for the various shared components and directives etc.
-
-For example, you may have a data table that is required in multiple feature modules. Simply creating a module for the data table means you can just import that single component into those feature modules and not the entire shared module which could potentially be many MB's in size.
-
-How granular you go with the shared module is up to you and dependent upon the application you are building. You could create a module for every single pipe, directive, or component. You could group all the pipes, directives, and components logically into various modules. For example, you may have a module for all your pipes or create a table module for all shared table components and directives, etc.
-
-### Feature Folder
-
-![The feature folder](../../assets/images/blog/angular-architecture/feature-folder.png)
-
-The feature folder is once again just a folder.  When I first started building apps with Angular I used to create a feature module which contained all what I would refer to as domain level components.  This is fine for small and simple applications but for medium sized apps and above I would not recommend doing this.  
-
-If all your various feature modules are imported into one single feature module which in turn is imported into the app module then you will loose the ability to lazy load them.  This means that the initial startup time of your application could be very slow as it needs to load all the various modules regardless if the user ever visits that part of the application.
-
-Only importing your feature modules when a user navigates to that specific view will keep your startup times small.
-
-Organising the feature folder by their domain makes it easy for new developers to quickly navigate about the code base.  Even though this blog is relatively small I still chose to architect in this way.  
-
-Therefore my feature folder contains the following feature modules:
-
-1. About
-2. Blog
-3. Home
-
-These relate to the top level domains of the site.
-
-![The top level site domains](../../assets/images/blog/angular-architecture/site-domains.png)
+The primary purpose of this architecture is to keep the main bundle size as small as possible for faster initial load times.
 
 
+![Application Architecture](../../assets/images/blog/angular-architecture/angular-architecture.png)
+
+## Eager Loaded
+
+These modules will be loaded when the application starts.
+Examples of modules required at startup are the navigation components, layout components, authentication, analytics etc.
+
+When adding a piece of code, you should ask the question, "Does this code need to run when the application starts up?".  If the answer is "Yes", then include it in the core or app module.  If the answer is "No", then you should lazy load it.
+## Lazy Loaded
+
+These modules will only be loaded when the user navigates to the various parts of the application via Angular's lazy-loaded routing mechanism.
+
+You can lazy-load a route in the following way.
+<pre>
+const routes: Routes = [
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
+  }
+];
+</pre>
+
+When modules are lazy-loaded, they get their own separate bundle to the main bundle. Having an individual bundle for modules has many advantages, such as keeping the main bundle size small, resulting in faster initial loading times and a better developer experience.
+
+When working on lazy-loaded modules, that module bundle will be rebuilt and not the main bundle or any other lazy-loaded module bundles.
+
+Lazy loading modules also give you the advantage of runtime errors if you are using any components or services etc., from one feature module in another. This is advantageous as it's not good practice to do this as you would not expect to change something in "Feature A" that results in "Feature B" breaking.
+
+## Services
+
+We should only provide services at the root level if the entire application requires them or is essential for starting up.
+
+A service provided at the root level will have a decorator with the `providedIn` property set to `'root'`.
+
+<pre>
+@Injectable({ providedIn: 'root' })
+export class SomeService { }
+</pre>
+
+Alternatively add them to the providers array in the Core or App module.
+
+Services required for one module should be provided by adding them to the module's providers array. The injectable decorator should be empty in these cases.
+
+<pre>
+@Injectable()
+export class SomeService { }
+...
+
+@NgModule({
+    providers: [
+        SomeService,
+    ],
+})
+export class SomeModule { }
+</pre>
+
+If a service is required by several feature modules, then it should be added to a module in the shared folder and imported into the feature modules as needed.
+
+## Shared Folder
+
+It is an important distinction that the shared folder is a folder and not a module. A shared module will become substantial and will likely get imported into all the feature modules, bloating their bundle size.
+
+The shared folder should consist of several child modules, which will be imported as needed. For example, it may contain a list module for all the list components or a table module for all the table components.
+
+## Features
+
+As mentioned previously, all feature modules should be lazy-loaded via Angular's code splitting API.
+
+It is essential to build out your feature pages with as many dumb UI components as possible, and doing this will increase the reusability and performance of the application.
+
+For a typical Angular application with NgRx, I would structure the feature modules file structure in the following way.
+
+\> Feature A
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> components (dumb components)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> constants
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> containers (smart components)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> enums
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> graphql (queries and mutations)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> pages (routable smart components)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> services
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> store (NgRx)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> actions
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> effects
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> models (interfaces)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> reducers
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \> selectors
+
+### Dumb Components (UI components)
+
+These are simple presentational components that do not contain any business logic and will rarely have their own state except for UI state (as opposed to data state).
+
+For performance, they should always use the `OnPush` change detection strategy.
+
+They should have zero external dependencies, ie the constructor should be empty.
+
+Data is passed to them via the `input` decorator, and the parent component will deal with any functionality via the `output` decorator.  The parent component should be either a Smart component or a Page.
+
+### Smart Components
+
+Smart components can contain the application's business logic, and the template will generally include one or more dumb components.
+
+Smart components can also have external dependencies, and the dependencies may consist of services that can handle the business logic for the component if needed.
+
+I usually keep the change detection strategy as the default setting as you may not guarantee any side effects due to the business logic.
+
+They may also have `inputs` and possibly `outputs`, but this is less likely as the component or service usually handles any functionality.
+
+Smart components are usually used to avoid nesting dumb components. If you are nesting dumb components, you may be in a position where you are passing data up multiple levels to be dealt with, which is not good practice. It is best to use a Smart component if you are doing this, so data only has to be passed up one level.
+
+### Pages
+
+These are the same as smart components, but the only difference is that these will be part of the application routing, and all navigation should be to a Page component.
+
+Page templates may consist of a number of dumb and container components.
+
+### Store
+
+This folder will contain all the relative NgRx logic for the feature.  It is good to decouple the store from the rest of the application to reduce the complexity for the not so experienced developers.
+
+I would also suggest using a facade service for any store interactions so that developers without any NgRx knowledge can work on the feature components without being too overwhelmed. 
+
+NgRx is too broad of a subject to cover in this article, and I will cover this in a future blog post. 
+
+## Conclusion
+
+As this article shows, it is relatively simple to architect your Angular applications in the best possible way to increase performance and to provide the best user and developer experience.
+
+If you think about these things upfront, you can ensure that users will not leave your site due to slow load times.  Applying these concepts as an afterthought will make your life a lot more complicated.
+
+To avoid regression over time, be sure to watch for Angular warnings when your bundle size exceeds the budget allowance configured in the `angular.json` file.
