@@ -2,3 +2,4 @@
 <div class="blog-post">
   <scully-content></scully-content>
 </div>
+<app-disqus *ngIf="currentRoute$ | async as currentRoute" [route]="currentRoute"></app-disqus>

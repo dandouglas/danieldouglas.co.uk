@@ -5,14 +5,27 @@ import { BlogCardComponent } from './blog-card/blog-card.component';
 import { FancyLinkComponent } from './fancy-link/fancy-link.component';
 import { RouterModule } from '@angular/router';
 import { PolaroidComponent } from './polaroid/polaroid.component';
+import { DisqusComponent } from './disqus/disqus.component';
+import { DisqusModule } from 'ngx-disqus';
 
 
 @NgModule({
-  declarations: [BlogCardComponent, FancyLinkComponent, PolaroidComponent],
-  exports: [BlogCardComponent, FancyLinkComponent, PolaroidComponent],
+  declarations: [
+    BlogCardComponent,
+    FancyLinkComponent,
+    PolaroidComponent,
+    DisqusComponent,
+  ],
+  exports: [
+    BlogCardComponent,
+    FancyLinkComponent,
+    PolaroidComponent,
+    DisqusComponent,
+  ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    DisqusModule,
   ]
 })
 export class SharedModule { }

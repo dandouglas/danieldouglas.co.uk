@@ -8,6 +8,7 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DisqusModule } from 'ngx-disqus';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserModule,
     AppRoutingModule,
     ScullyLibModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    DisqusModule.forRoot('danieldouglas-1'),
   ],
   providers: [],
   bootstrap: [AppComponent]
