@@ -10,7 +10,7 @@ date: '20/12/2022'
 ---
 # Unit testing Ionic Angular Capacitor plugins
 
-<small>21/12/2022</small>
+<small>20/12/2022</small>
 
 ![Capacitor and Ionic logo](../../assets/images/blog/testing-capacitor-plugins/capacitor-banner.jpeg)
 
