@@ -31,10 +31,10 @@
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@scullyio/init": "0.0.28",
-    "@scullyio/ng-lib": "latest",
-    "@scullyio/scully": "latest",
+    "@scullyio/ng-lib": "1.0.0",
+    "@scullyio/scully": "1.0.0",
     "ngx-disqus": "^2.4.3",
-    "rxjs": "~6.5.4",
+    "rxjs": "6.5.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
@@ -43,7 +43,7 @@
     "@angular/cli": "~12.2.7",
     "@angular/compiler-cli": "~12.2.7",
     "@angular/language-service": "~12.2.7",
-    "@scullyio/scully-plugin-google-analytics": "^1.1.1",
+    "@scullyio/scully-plugin-google-analytics": "1.1.1",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
@@ -58,6 +58,6 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.3.5"
+    "typescript": "4.3.5"
   }
 }
