@@ -1,2 +1,11 @@
 identifier: kbn8t813g1xce8v3
 allowErrorCollect: false
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: danieldouglas
+homeFolder: /Users/danieldouglas/dev/danieldouglas.co.uk
+distFolder: dist/danieldouglas
+outDir: /Users/danieldouglas/dev/danieldouglas.co.uk/dist/static
+handle404: ''
