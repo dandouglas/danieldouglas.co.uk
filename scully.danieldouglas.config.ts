@@ -1,5 +1,6 @@
 import { setPluginConfig, ScullyConfig, prod } from '@scullyio/scully';
 import { GoogleAnalytics } from '@scullyio/scully-plugin-google-analytics';
+import '@scullyio/scully-plugin-puppeteer';
 
 const defaultPostRenderers = [];
 
