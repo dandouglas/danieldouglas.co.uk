@@ -36,7 +36,7 @@ jobs:
           command: |
             aws s3 sync ./dist/static s3://danieldouglas.co.uk
 workflows:
-  version: 2
+  version: 2.1
   build_and_deploy:
     jobs:
       - build_deploy:
