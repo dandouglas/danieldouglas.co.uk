@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/node:16
+      - image: circleci/node:14
     steps:
       - checkout
       - run:
@@ -34,7 +34,7 @@ jobs:
             npm run jam-prod:build -- --serverTimeout=300000
   deploy:
     docker:
-      - image: circleci/node:16
+      - image: circleci/node:14
     steps:
       - checkout
       - run:
