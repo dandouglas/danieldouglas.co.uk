@@ -31,7 +31,7 @@ jobs:
       - run:
           name: Build
           command: |
-            npm run jam-prod:build
+            npm run jam-prod:build -- --serverTimeout=300000
   deploy:
     docker:
       - image: circleci/node:16
