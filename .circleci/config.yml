@@ -27,7 +27,7 @@ jobs:
       - run:
           name: Install puppeteer with chromium
           command: |
-            npm i -g puppeteer
+            npm i --save-dev puppeteer
       - run:
           name: Build
           command: |
