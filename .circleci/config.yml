@@ -5,12 +5,12 @@ jobs:
       - image: circleci/node:16
     steps:
       - checkout
-      # - run:
-      #     name: Install AWS CLI
-      #     command: |
-      #       sudo apt-get update
-      #       sudo apt install python3-pip
-      #       sudo pip3 install awscli --upgrade
+      - run:
+          name: Install AWS CLI
+          command: |
+            sudo apt-get update
+            sudo apt install python3-pip
+            sudo pip3 install awscli --upgrade
       - run:
           name: Install node packages
           command: |
