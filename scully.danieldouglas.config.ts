@@ -11,8 +11,8 @@ if (prod) {
 
 export const config: ScullyConfig = {
   defaultPostRenderers,
-  projectRoot: "./src",
-  projectName: "danieldouglas",
+  projectRoot: './src',
+  projectName: 'danieldouglas',
   outDir: './dist/static',
   routes: {
     '/': {
@@ -22,8 +22,11 @@ export const config: ScullyConfig = {
     '/blog/:slug': {
       type: 'contentFolder',
       slug: {
-        folder: "./blog"
-      }
+        folder: './blog',
+      },
     },
-  }
+  },
+  puppeteerLaunchOptions: {
+    args: ['--no-sandbox'],
+  },
 };
