@@ -27,6 +27,7 @@ jobs:
       - run:
           name: Where is chromium 😭
           command: |
+            sudo apt-get install chromium-browser
             which chromium
       # - run:
       #     name: Install puppeteer with chromium
