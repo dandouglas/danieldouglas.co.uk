@@ -25,9 +25,13 @@ jobs:
             libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates \
             fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
       - run:
-          name: Install puppeteer with chromium
-          command: |
-            npm i puppeteer
+        name: Where is chromium 😭
+        command: /
+          which chromium
+      # - run:
+      #     name: Install puppeteer with chromium
+      #     command: |
+      #       npm i puppeteer
       - run:
           name: Build
           command: |
