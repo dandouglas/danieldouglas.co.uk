@@ -20,8 +20,6 @@ Many plugins are available to enhance these applications by bridging the native 
 
 If you are building your Ionic applications with the Angular framework, you may hit difficulties unit testing components that interact with one of these plugins. This is because a plugin is really just a global object and global objects are hard to mock.
 
-<p class="tldr">TLDR: Create a DI token that uses a factory method which returns the global `FirebaseAnalytics` object.</p>
-
 Let's say you have a service responsible for tracking analytics via the community Firebase Analytics plugin.
 
 ```

@@ -1,6 +1,7 @@
 import { setPluginConfig, ScullyConfig, prod } from '@scullyio/scully';
 import { GoogleAnalytics } from '@scullyio/scully-plugin-google-analytics';
 import '@scullyio/scully-plugin-puppeteer';
+require('dotenv').config();
 
 const defaultPostRenderers = [];
 
@@ -28,6 +29,6 @@ export const config: ScullyConfig = {
   },
   puppeteerLaunchOptions: {
     args: ['--no-sandbox', '--disable-setuid--sandbox'],
-    executablePath: '/usr/bin/google-chrome'
+    executablePath: process.env.CHROMIUM_PATH
   },
 };
